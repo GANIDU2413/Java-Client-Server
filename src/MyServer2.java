@@ -11,15 +11,15 @@ public class MyServer2 {
             DataOutputStream dout = new DataOutputStream(s.getOutputStream());
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-            String str1 = " ",str2=" ";
+            String str1 = "",str2="";
 
             while (!str1.equals("404")){
-                str1=din.readUTF();
-                System.out.println("Client Says:v"+str1);
-
-                str2= br.readLine();
-                dout.writeUTF(str2);
+                str1= br.readLine();
+                dout.writeUTF(str1);
                 dout.flush();
+
+                str2=din.readUTF();
+                System.out.println("Client Says:v"+str2);
             }
 
             din.close();
